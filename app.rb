@@ -14,9 +14,9 @@ end
 
 post '/notes' do
   settings.notes << {
-    from: params[:from_email],
-    subject: params[:subject],
-    body: params[:text]
+    from: params['from_email'],
+    subject: params['subject'],
+    body: params['text']
   }
 
   nil

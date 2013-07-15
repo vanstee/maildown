@@ -27,4 +27,6 @@ post '/notes' do
     subject: params[:subject],
     body: params[:text]
   }
+
+  nil
 end

@@ -13,10 +13,12 @@ get '/notes' do
 end
 
 post '/notes' do
+  email = JSON.parse(params['mandrill_events']).first['msg']
+
   settings.notes << {
-    from: params['from_email'],
-    subject: params['subject'],
-    body: params['text']
+    from: email['from_email'],
+    subject: email['subject'],
+    body: email['text']
   }
 
   nil

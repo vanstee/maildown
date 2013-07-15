@@ -19,7 +19,7 @@ post '/notes' do
   settings.notes << {
     from: email['from_email'],
     subject: email['subject'],
-    body: markdown.render(email['text'])
+    body: settings.markdown.render(email['text'])
   }
 
   nil

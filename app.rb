@@ -1,4 +1,5 @@
-require 'sinatra'
+require 'bundler'
+Bundler.require
 
 configure do
   set :notes, []

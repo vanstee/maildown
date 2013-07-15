@@ -9,7 +9,7 @@ get '/' do
 end
 
 get '/notes' do
-  settings.notes.to_json
+  { notes: settings.notes }.to_json
 end
 
 post '/notes' do

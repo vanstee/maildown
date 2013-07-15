@@ -3,6 +3,7 @@ Bundler.require
 
 configure do
   set :notes, []
+  set :markdown, Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, space_after_headers: true)
 end
 
 get '/' do
@@ -18,7 +19,7 @@ post '/notes' do
   settings.notes << {
     from: email['from_email'],
     subject: email['subject'],
-    body: email['text']
+    body: markdown.render(email['text'])
   }
 
   nil
